@@ -1,13 +1,25 @@
 /*ID체크*/
 function idCheck(id) {
-	if(id == "") {
+	if(id=="") {
 		alert("아이디를 입력해주세요.");
 		document.regForm.id.focus();
 	}else {
 	 url = "idCheck.jsp?id=" +id
-	window.open(url, "post", "width=500, height=250"); 
+	window.open(url, "post", "width=300, height=150"); 
 	}
 }
+/*닉네임 체크*/
+function nickCheck(nick) {
+	if(nick==""){
+		alert("닉네임을 입력해주세요.");
+		document.regForm.nick.focus();
+	}else {
+		url ="nickCheck.jsp?nick="+nick
+		window.open(url, "post", "width=300, height=150");
+	}	
+	
+}
+
 
 /*유효성 검사 이메일 비밀번호 맞는지*/
 function inputCheck() {

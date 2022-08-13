@@ -8,10 +8,10 @@
     
     <jsp:setProperty property = "*" name ="vo"/>
     
-    <%
+   <%--  <%
      //DAO에 있는 회원데이터 저장 메소드 
       boolean flag = dao.memberInsert(vo);
-    %>
+    %> --%>
     
 <!DOCTYPE html>
 <html>

@@ -14,11 +14,11 @@
 	<div class ="text">SIGN UP</div>
 	<div class ="small-text">여행 스케쥴링 플래너 - 도죠</div>
 	
-	<form action="regProc.jsp" method = "post" name = "regForm"><!--회원가입 폼 안에 있는 정보들을 DB로 넣어줘야 된다. -->
+	<form action="#" method = "post" name = "regForm"><!--회원가입 폼 안에 있는 정보들을 DB로 넣어줘야 된다. -->
 	 	<div><!--버튼을 눌러서 중복확인 중복화인은 자바스크립트로 함수로 구현  -->
 	 	  <label class = "label-text">ID</label>
 	 	  <input class = "#" type = "text" name ="id">
-	 	  <input class = "#" type = "button" value = "확인" onclick="idCehck(this.Form.id.value)"> <!--아이디 확인 버튼-->
+	 	  <input class = "#" type = "button" value = "확인" onclick="idCheck(this.Form.id.value)"> <!--아이디 확인 버튼-->
 	 	</div>
 	 	
 		<div>
