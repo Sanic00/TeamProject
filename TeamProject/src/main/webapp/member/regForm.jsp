@@ -60,7 +60,7 @@
 		</div>
 		
 		<div>
-			<button class = "#" value = "뒤로가기" onclick ="#">뒤로가기</button> 
+			<input type ="button" class = "#" value = "뒤로가기" onclick="backbutton()"> 
 		</div>
 	
 	</form>

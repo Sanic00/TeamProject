@@ -79,3 +79,8 @@ function inputCheck() {
 	}
 	document.regForm.submit();
 }
+
+//뒤로가기
+function backbutton() {
+	history.back();
+}

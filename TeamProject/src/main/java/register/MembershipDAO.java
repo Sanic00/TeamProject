@@ -44,7 +44,7 @@ public boolean idCheck(String id) {
 		
 	} catch (SQLException s1) {
 		s1.printStackTrace();
-		 System.out.println("연결이 왜 안되니 시발련아");
+		
 		
 	} finally {
 		if(rs != null) try{rs.close();}catch(SQLException s1){}
@@ -56,20 +56,21 @@ public boolean idCheck(String id) {
 	
 } // end of idCheck
 	
+//	닉네임 중복체크 하기 위해 DB안에 있는지 비교
 	public boolean nickCheck(String nick) {
+		
 		boolean result = true;
 		Connection conn = null;
 		PreparedStatement pstmt = null; 
 		ResultSet rs = null;
 		
 		try {
-			//위에 연결 메소드 호출 한거임
+			
 				conn = getConnection();
 														
 				pstmt = conn.prepareStatement("select * from member where nick = ?");
 				
-				//String 타입으로 저장
-				pstmt.setString(3, nick);
+				pstmt.setString(1, nick);
 				 	
 				rs = pstmt.executeQuery();
 				if(!rs.next()) result = false;
@@ -77,7 +78,7 @@ public boolean idCheck(String id) {
 				
 		} catch (SQLException s1) {
 			s1.printStackTrace();
-			System.out.println("진짜 지랄 하지마 연결좀 제발");
+			
 		} finally {
 			if(rs != null) try{rs.close();}catch(SQLException s1){}
 			if(pstmt != null) try{pstmt.close();}catch(SQLException s2){}
@@ -90,7 +91,7 @@ public boolean idCheck(String id) {
 	//DB에 회원데이터 저장
 	public boolean memberInsert(MembershipVO vo) {
 		
-		boolean flag = false;
+		boolean flag = false; //true과 되면 성공
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
