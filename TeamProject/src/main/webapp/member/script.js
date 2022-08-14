@@ -1,11 +1,11 @@
 /*ID체크*/
 function idCheck(id) {
-	if(id=="") {
+	if(id == "") {
 		alert("아이디를 입력해주세요.");
 		document.regForm.id.focus();
 	}else {
 	 url = "idCheck.jsp?id=" +id
-	window.open(url, "post", "width=300, height=150"); 
+	 window.open(url, "post", "width=300, height=150");	
 	}
 }
 /*닉네임 체크*/
@@ -71,6 +71,7 @@ function inputCheck() {
 	var eMailSize = str.length;
 	
 	if(atPos > 1 && atPos == atLastPos && dotPos > 3 && spacePos == -1 && commaPos == -1 && atPos +1 < dotPos && dotPos + 1 < eMailSize){
+	}else{	
 		alert("E-Mail 주소 형식이 잘못 되었습니다. \n\r 다시 입력 해주세요.");
 		document.regForm.email.focus();
 		return;

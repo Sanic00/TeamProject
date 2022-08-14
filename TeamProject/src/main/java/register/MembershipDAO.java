@@ -61,7 +61,7 @@ public boolean idCheck(String id) {
 		try {
 			//위에 연결 메소드 호출 한거임
 				conn = getConnection();
-												//아이디가 뭔지 모르니 바인딩으로 		
+														
 				pstmt = conn.prepareStatement("select * from member where nick = ?");
 				
 				//String 타입으로 저장

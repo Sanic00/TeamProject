@@ -16,9 +16,9 @@
 	
 	<form action="#" method = "post" name = "regForm"><!--회원가입 폼 안에 있는 정보들을 DB로 넣어줘야 된다. -->
 	 	<div><!--버튼을 눌러서 중복확인 중복화인은 자바스크립트로 함수로 구현  -->
-	 	  <label class = "label-text">ID</label>
-	 	  <input class = "#" type = "text" name ="id">
-	 	  <input class = "#" type = "button" value = "확인" onclick="idCheck(this.Form.id.value)"> <!--아이디 확인 버튼-->
+	 	  <label class = "label-text">아이디</label>
+	 	  <input class = "imsi" type = "text" name ="id">
+	 	  <input class = "imsi2" type = "button" value = "확인" onclick="idCheck(this.regForm.id.value)"> <!--아이디 확인 버튼-->
 	 	</div>
 	 	
 		<div>
