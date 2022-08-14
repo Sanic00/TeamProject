@@ -10,12 +10,13 @@ public class MembershipDAO {
 	private Connection getConnection() {
 		
 		DataSource ds;
-		Connection conn = null;
+		Connection conn = null; //연결을 해주는 객체 생성, 초기값 null로 
 		
 		try {
 			
 			Context initContext = new InitialContext();
 			ds = (DataSource)initContext.lookup("java:/comp/env/jdbc/myoracle");
+			conn = ds.getConnection();
 			
 		} catch (Exception e) {
 			System.out.println("DB연결 실패!!!");
@@ -43,6 +44,8 @@ public boolean idCheck(String id) {
 		
 	} catch (SQLException s1) {
 		s1.printStackTrace();
+		 System.out.println("연결이 왜 안되니 시발련아");
+		
 	} finally {
 		if(rs != null) try{rs.close();}catch(SQLException s1){}
 		if(pstmt != null) try{pstmt.close();}catch(SQLException s2){}
@@ -55,7 +58,8 @@ public boolean idCheck(String id) {
 	
 	public boolean nickCheck(String nick) {
 		boolean result = true;
-		Connection conn = null;PreparedStatement pstmt = null; 
+		Connection conn = null;
+		PreparedStatement pstmt = null; 
 		ResultSet rs = null;
 		
 		try {
@@ -66,14 +70,14 @@ public boolean idCheck(String id) {
 				
 				//String 타입으로 저장
 				pstmt.setString(3, nick);
-				 
-				//DB 변동에 있을떄는 excuteUpdate 메소드를 써야함 조회만 할때는 쿼리만 씀	
+				 	
 				rs = pstmt.executeQuery();
 				if(!rs.next()) result = false;
 				
 				
 		} catch (SQLException s1) {
 			s1.printStackTrace();
+			System.out.println("진짜 지랄 하지마 연결좀 제발");
 		} finally {
 			if(rs != null) try{rs.close();}catch(SQLException s1){}
 			if(pstmt != null) try{pstmt.close();}catch(SQLException s2){}
@@ -83,5 +87,40 @@ public boolean idCheck(String id) {
 		return result;
 	}//end of nickCheck 
 	
-	
+	//DB에 회원데이터 저장
+	public boolean memberInsert(MembershipVO vo) {
+		
+		boolean flag = false;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = getConnection();
+			
+			String strQuery = "insert into member values(?,?,?,?)";
+			
+			pstmt = conn.prepareStatement(strQuery);
+			
+			pstmt.setString(1, vo.getId());
+			pstmt.setString(2, vo.getPass());
+			pstmt.setString(3, vo.getNick());
+			pstmt.setString(4, vo.getEmail());
+		
+			int count = pstmt.executeUpdate();
+			if(count > 0) flag = true;
+		
+		}catch(SQLException s1) {	
+			s1.printStackTrace();
+		}catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) try{rs.close();}catch(SQLException s1){}
+			if(pstmt != null) try{pstmt.close();}catch(SQLException s2){}
+			if(conn != null) try{conn.close();}catch(SQLException s3){}		
+		}
+		
+		return flag;
+	}
 }

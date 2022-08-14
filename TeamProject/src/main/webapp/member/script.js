@@ -8,9 +8,10 @@ function idCheck(id) {
 	 window.open(url, "post", "width=300, height=150");	
 	}
 }
+
 /*닉네임 체크*/
 function nickCheck(nick) {
-	if(nick==""){
+	if(nick == ""){
 		alert("닉네임을 입력해주세요.");
 		document.regForm.nick.focus();
 	}else {
@@ -24,19 +25,19 @@ function nickCheck(nick) {
 /*유효성 검사 이메일 비밀번호 맞는지*/
 function inputCheck() {
 	/*아이디 먼저 검사*/
-	if(document.regForm.id.value=""){
+	if(document.regForm.id.value==""){
 		alert("아이디를 입력해주세요.");
 		document.regForm.id.focus();
 		return;
 	}
 	
-	if(document.regForm.pass.value=""){
+	if(document.regForm.pass.value==""){
 		alert("비밀번호를 입력해주세요.");
 		document.regForm.pass.focus();
 		return;
 	}
 	
-	if(document.regForm.repass.value=""){
+	if(document.regForm.repass.value==""){
 		alert("비밀번호를 똑같이 입력해주세요.");
 		document.regForm.repass.focus();
 		return;
@@ -48,7 +49,7 @@ function inputCheck() {
 		return;
 	}
 	
-	if(document.regForm.nick.value=""){
+	if(document.regForm.nick.value==""){
 		alert("닉네임을 입력해주세요.");
 		document.regForm.nick.focus();
 		return;

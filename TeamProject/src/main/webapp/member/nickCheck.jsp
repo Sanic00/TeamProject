@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     <jsp:useBean id="dao" class="register.MembershipDAO" />
+     <jsp:useBean id= "dao" class="register.MembershipDAO" />
      
      <%
      String nick = request.getParameter("nick");
@@ -17,7 +17,6 @@
 <script type="text/javascript" src = "script.js"></script>
 </head>
 <body>
-
 <div align = "center">
 <b> <%= nick %></b>
 	<%
@@ -28,7 +27,7 @@
 	}
 	%>
 
-	<a href ="#" oneclick = "javascript:self.close()">닫기</a>
+	<a href ="#" onclick = "javascript:self.close()">닫기</a>
 
 </div>
 
