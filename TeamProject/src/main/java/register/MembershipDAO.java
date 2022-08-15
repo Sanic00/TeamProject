@@ -99,8 +99,8 @@ public boolean idCheck(String id) {
 		
 		try {
 			conn = getConnection();
-			
-			String strQuery = "insert into member values(?,?,?,?)";
+			//이메일 인증이 안된 상태니 false로 
+			String strQuery = "insert into member values(?,?,?,?, false)";
 			
 			pstmt = conn.prepareStatement(strQuery);
 			

@@ -7,4 +7,14 @@ constraint member_pk primary key(id)
 );
 
 select * from member;
+desc 
+
+create table user1 (
+userid varchar2(20) not null,
+userpassword varchar2(65) not null,
+useremail varchar2(50) not null,
+useremailhash varchar2(65) not null,
+useremailchecked varchar(y),
+constraint user1_pk primary key(id)
+);
 
