@@ -7,14 +7,16 @@ constraint member_pk primary key(id)
 );
 
 select * from member;
-desc 
+
+select * from user1;
+
 
 create table user1 (
-userid varchar2(20) not null,
+userid varchar2(30) not null,
 userpassword varchar2(65) not null,
 useremail varchar2(50) not null,
 useremailhash varchar2(65) not null,
-useremailchecked varchar(y),
-constraint user1_pk primary key(id)
+useremailchecked char(1) constraint user1_ck check(useremailchecked in ('0','1')),
+constraint user1_pk primary key(userid)
 );
 

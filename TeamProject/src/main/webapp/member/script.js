@@ -80,6 +80,52 @@ function inputCheck() {
 	document.regForm.submit();
 }
 
+//이메일 인증 보내기 결과값이 true 라면 새창에 email정보를 get방식? false라면 기능 실현 하지않음
+function emailAuthentication() {
+	if(!emailValCheck()){
+		return false;
+	}
+	var url = "confirmEmail.four?email=" + document.regForm.email.value;
+	open(url, "post",
+	"toolbar=no, location=no, menubar=no, scrollbars=no, resizable=no, width=300, height=200")
+}
+// const 상수,선언 후 변하지 않을 값의 자료형에 사용
+//emailValCheck()가 정규식으로 입력된 값이 유효한지 검사
+const form = document.regForm; //email을 포함하는 form의 위치
+function emailValCheck(){
+	var emailPattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-z](-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,4}$/i; //이메일 정규식 패턴
+	var email = form.email.value; 
+	// (매개변수 pattern, taget  message)를 호출해 결과에 따라 새창을 띄움
+	if(!check(emailPattern, email, "유효하지 않은 이메일 주소입니다.")) {
+		return false;
+	}
+	return true;
+}
+
+/*정규식 검증이 필요한 다른 항목에서도 사용가능하도록 만들어 코드 재사용성을 높임
+taget을 pattern으로 검사해 유효하면 ture 반환
+taget이 pattern에 맞지 않는다면?
+alert로 message를 띄워 사용자에게 알림
+유요하지 않은 입력에 포커스를 줌
+false 반환*/
+
+function check(pattern, taget, message) {
+	if(pattern.test(taget)) {
+		return true;
+	}
+	alert(message);
+	taget.focus();
+	return false;
+}
+
+
+function authCodeCheck() {
+	var url = "authCodeCheck.jsp?inputedCode=" + document.regForm.authCode.value;
+	open(url, "post",
+	"toolbar=no, location=no, menubar=no, scrollbars=no, resizable=no, width=300, height=200");
+}
+
+
 //뒤로가기
 function backbutton() {
 	history.back();

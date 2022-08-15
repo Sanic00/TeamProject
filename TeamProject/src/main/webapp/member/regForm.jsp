@@ -38,9 +38,23 @@
 	 	</div>
 	 	
 	 	<div>
-	 	  <label class = "label-text">E-Mail</label>
-	 	  <input class = "#" type = "text" name ="email">
+	 		<label class = "label-text">E-Mail</label>
+	 		<input type = "text" name ="email" id ="inputEmailForm">
+	 		<button onclick = "emailAuthentication()" id="emailAuthBtn" type="button" class="btnChk">인증 보내기</button>
+	 	 
+	 	
+	 	  <!-- <label class = "label-text">E-Mail</label>
+	 	  <input class = "#" type = "text" name ="email"> -->
 	 	</div>
+	 	
+	 	<!--이메일 인증까지 끝나면 value = true
+	 	최정적으로 회원가입시 이메일 인증이 됬나 안됬나를 체크   -->
+	 	<!-- <div>
+	 	  <label class = "label-text">인증번호</label>
+	 	  <input type="text" name="authCode" id="inputAuthCode"  maxlength="10" disabled="disabled">
+	 	  <input class="#" onclick="authCodeCheck()" id="authCodeCheckBtn" type="hidden" disabled="disabled" >인증</button>
+		  <input type="submit" name="authPass" id="authPass" value="false">
+	 	</div> -->
 	 	
 	<!-- 	<div class = "agree-container">
 			<span class = "agree-link-container"></span>
