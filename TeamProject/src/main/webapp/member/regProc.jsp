@@ -23,11 +23,10 @@
 	<div align = "center">
 	<%
 	if(flag) {
-		out.println("<b>회원가입을 진심으로 축하드립니다<b>");
-		
+		out.println("<b>회원가입을 진심으로 축하드립니다<b><br>");
 		out.println("<a href=login.jsp>로그인</a>");
 	}else {
-		out.println("<b>다시 입력 해 주세요.<b>");
+		out.println("<b>다시 입력 해 주세요.<b><br>");
 		out.println("<a href=regForm.jsp>로그인</a>");
 	}
 	

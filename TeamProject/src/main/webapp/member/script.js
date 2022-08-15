@@ -130,3 +130,8 @@ function authCodeCheck() {
 function backbutton() {
 	history.back();
 }
+
+//비밀번호 찾기 
+"use strict";var re=/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;//뒤로가기 버튼
+$("#sendNewPwdBtn").click(function(){// console.log(111111);
+return re.test($("#findUserPwdEmail").val())?void $.ajax({type:"POST",url:"/sendNewPwd",data:{findUserPwdEmail:$("#findUserPwdEmail").val()},success:function success(res){alert(res.msg)}}):void alert("\uC798\uBABB\uB41C \uC774\uBA54\uC77C\uC785\uB2C8\uB2E4.")}),$("#backPage").click(function(){history.back()})

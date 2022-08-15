@@ -99,8 +99,8 @@ public boolean idCheck(String id) {
 		
 		try {
 			conn = getConnection();
-			//이메일 인증이 안된 상태니 false로 
-			String strQuery = "insert into member values(?,?,?,?, false)";
+		
+			String strQuery = "insert into member values(?,?,?,?)";
 			
 			pstmt = conn.prepareStatement(strQuery);
 			
@@ -114,6 +114,7 @@ public boolean idCheck(String id) {
 		
 		}catch(SQLException s1) {	
 			s1.printStackTrace();
+			System.out.println("????");
 		}catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -123,5 +124,13 @@ public boolean idCheck(String id) {
 		}
 		
 		return flag;
-	}
+	}// end of memberInsert
+	
+	
+	
+	
+	
+	
+	
+	
 }

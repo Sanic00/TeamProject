@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%
+    String loginID = (String)session.getAttribute("loginID");
+    %>
+    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +14,13 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+
+<%-- <%
+ if(loginID != null) {
+%>
+ --%>
+
+
 
 <div class = "center">
 	<div class ="container">
@@ -26,7 +39,7 @@
 	   	 	
 	   	 	<!--비밀번호 찾기  -->
 	   	 	<div class = "forget-pass">
-	   	 	<a href ="#">비밀번호를 잊으셨나요?</a>
+	   	 	<a href ="findpassword">비밀번호를 잊으셨나요?</a>
 	   	 	</div>
 	   	 	
 	   	 	<!--로그인 버튼  -->

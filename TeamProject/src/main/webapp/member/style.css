@@ -31,6 +31,18 @@ body {
 	margin-top: 30px;
 }
 
+@media (max-width: 600px) {
+    body {
+        background: #fff;
+    }
+    .container {
+        width: 90vw;
+        box-shadow: unset;
+    }
+}
+
+
+
 /* 로그인 헤더*/
 .container .text {
 	font-family : 'Montserrat';
@@ -55,7 +67,7 @@ body {
 }
 
  .form-container .data label {
-  font-size: 14px;
+  font-size: 16px;
   font-color: #000000;
  }
  
@@ -80,13 +92,66 @@ input[type = 'password'] {
 
 .form-container .forget-pass {
 	margin-top: -6px;
-	font-size: 16px;
+	font-size: 15px;
+}
+/*비밀번호 잊으셨나요?  */
+.form-container .forget-pass a:hover {
+  	 color: #3498db;
+    text-decoration: none;
+}
+/* 로그인 버튼   */
+.form-container .btn {
+	margin: 30px 0;
+	height: 45px;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
 }
 
-.form-container .forget-pass a{
-  	color: #3498db;
-	text-decoration: none;
+.form-container .btn button {
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #98dde3;
+}
+/* 회원가입 링크 */
+.form-container .signup-link {
+    text-align: center;
+    font-size: 14px;
 }
 
+.form-container .signup-link a {
+    color: #3498db;
+    text-decoration: none;
+}
+/* 회원가입 밑 or 왜 선이 안생기지? */
+.divider {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1px;
+    width: 100%;
+    background-color: #e0e0e0;
+}
 
+.divider-container {
+    position: relative;
+    text-align: center;
+    margin: 8px;
+}
 
+.divider-container span {
+    position: relative;
+    width: 10vw;
+    background-color: #fff;
+    display: inline-block;
+    color: #616161;
+}
