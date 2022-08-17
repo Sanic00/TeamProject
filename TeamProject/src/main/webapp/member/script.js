@@ -131,7 +131,46 @@ function backbutton() {
 	history.back();
 }
 
+//구글 로그인 api
+function init() {
+	gapi.load('auth2', function() {
+		gapi.auth2.init();
+		options = new gapi.auth2.SigninOptionsBuilder();
+		options.setPrompt('select_account');
+        // 추가는 Oauth 승인 권한 추가 후 띄어쓰기 기준으로 추가
+		options.setScope('email profile openid https://www.googleapis.com/auth/user.birthday.read');
+        // 인스턴스의 함수 호출 - element에 로그인 기능 추가
+        // GgCustomLogin은 li태그안에 있는 ID, 위에 설정한 options와 아래 성공,실패시 실행하는 함수들
+		gapi.auth2.getAuthInstance().attachClickHandler('GgCustomLogin', options, onSignIn, onSignInFailure);
+	})
+}
+
+function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+    /*    // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);*/
+      }
+
+//구글 로그아웃 
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+
+
+/*
 //비밀번호 찾기 
 "use strict";var re=/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;//뒤로가기 버튼
 $("#sendNewPwdBtn").click(function(){// console.log(111111);
-return re.test($("#findUserPwdEmail").val())?void $.ajax({type:"POST",url:"/sendNewPwd",data:{findUserPwdEmail:$("#findUserPwdEmail").val()},success:function success(res){alert(res.msg)}}):void alert("\uC798\uBABB\uB41C \uC774\uBA54\uC77C\uC785\uB2C8\uB2E4.")}),$("#backPage").click(function(){history.back()})
+return re.test($("#findUserPwdEmail").val())?void $.ajax({type:"POST",url:"/sendNewPwd",data:{findUserPwdEmail:$("#findUserPwdEmail").val()},success:function success(res){alert(res.msg)}}):void alert("\uC798\uBABB\uB41C \uC774\uBA54\uC77C\uC785\uB2C8\uB2E4.")}),$("#backPage").click(function(){history.back()})*/

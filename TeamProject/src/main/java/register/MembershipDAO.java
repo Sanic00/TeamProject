@@ -126,7 +126,39 @@ public boolean idCheck(String id) {
 		return flag;
 	}// end of memberInsert
 	
-	
+	public int loginCheck(String id, String pass) {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int check = -1; //초기는 아이디 없음으로 설정
+		
+		try {
+			conn = getConnection();
+			
+			String strQuery = "select pass from member where id =?";
+			pstmt = conn.prepareStatement(strQuery);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				String dbPass = rs.getString("pass"); //비밀번호를 가져와 dbpass에 저장
+				if(pass.equals(dbPass)) check =1; // 파라미터값과 동일 하면 로그인 성공
+				else check = 0; // 아닐 경우 아이디는 맞지만 비번이 맞지 않으니 실패
+			}
+		}catch(SQLException s1) {	
+			s1.printStackTrace();
+		}catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) try{rs.close();}catch(SQLException s1){}
+			if(pstmt != null) try{pstmt.close();}catch(SQLException s2){}
+			if(conn != null) try{conn.close();}catch(SQLException s3){}		
+		}
+		
+		return check;
+	} // end of loginCheck
 	
 	
 	

@@ -5,23 +5,26 @@
     String loginID = (String)session.getAttribute("loginID");
     %>
     
-    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>여행 스케쥴링 플래너 - 도죠</title>
 <link rel="stylesheet" type="text/css" href="style.css">
+<meta name="google-signin-client_id" content="885450494757-uu2rp6dqr2jjtqjabhtkrfh2pd8g4hjf.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script type="text/javascript" src = "script.js"></script>
 </head>
 <body>
+	 <%
 
-<%-- <%
- if(loginID != null) {
-%>
- --%>
+ 	if(loginID != null) { //login 되었을때 화면 출력
+ 
+	%>
+	
+<% } else { %>
 
-
-
+<form action="loginProc.jsp" method = "post">
 <div class = "center">
 	<div class ="container">
 	   <div class = "text"><h2>LOG IN</h2></div>
@@ -39,13 +42,13 @@
 	   	 	
 	   	 	<!--비밀번호 찾기  -->
 	   	 	<div class = "forget-pass">
-	   	 	<a href ="findpassword">비밀번호를 잊으셨나요?</a>
+	   	 	<a href ="findpassword.jsp">비밀번호를 잊으셨나요?</a>
 	   	 	</div>
 	   	 	
 	   	 	<!--로그인 버튼  -->
 	   	 	<div class = "btn"> 
 	   	 	 	<div class = "log-button"></div>
-	   	 	 	<button type ="submit" value = "login" onclick="#" >Log-in</button>
+	   	 	 	<input type ="submit" value = "login">Log-in</input>
 	   	 	</div>
 	   	 	
 	   	 	<!--회원가입 링크  -->
@@ -55,22 +58,34 @@
 	   	 	
 	   	 	<!-- -->
 	   	 	<div class = "divider-container">
+	   	 	<div class = "divider"></div>
 	   	 		<span>or</span>
 	   	 	</div>
 	   	 	
 	   		 <!--소셜 로그인 연동 (수정해야됨)-->
-	   	 	<div class = "sns-login">SNS 간편 로그인</div>
-	   		 <div class = "sns-button">
-	   		 	<div class = "socialBtn1">구글임시(아이콘)</div>
-	   		 		<div></div>
-	   		 	<div class = "socialBtn2">Line임시(아이콘)</div>
-	   		 		<div></div>
-	   		 	<div class = "socialBtn3">페이스북(아이콘)</div>
-	   		 		<div></div>
-	   		 </div>
+	   	 	<div class = "sns-text">SNS 간편 로그인</div>
+	   		 <div class = "social-container">
+	   		 	<div class = "socialBtn">
+	   		 		<div class="btn-image1" >
+	   		 		<img alt="logo" src="./image/ggbtn.png">
+	   		 		</div>
+	   		 	</div>	
+	   		 	<div class = "socialBtn">
+	   		 		<div class ="btn-image2" onclick ="#">
+	   		 		<img src ="./image/linebtn.png" alt="logo">
+	   		 		</div>
+	   		 	</div>	
+	   		 	<div class = "socialBtn">
+	   		 		<div class = "btn-image3" onclick = "#">
+	   		 		<img src = "./image/ffbtn.png" alt="logo">
+				</div>
+			</div>	   		 
 	   	</div>
 	  </div>
 	</div>
-
+	<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <button type ="button" onclick="signOut();">Sign Out</button>
+</form>
+<% } %> 
 </body>
 </html>
