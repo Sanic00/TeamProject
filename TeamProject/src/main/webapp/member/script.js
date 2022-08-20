@@ -80,97 +80,13 @@ function inputCheck() {
 	document.regForm.submit();
 }
 
-//이메일 인증 보내기 결과값이 true 라면 새창에 email정보를 get방식? false라면 기능 실현 하지않음
-function emailAuthentication() {
-	if(!emailValCheck()){
-		return false;
-	}
-	var url = "confirmEmail.four?email=" + document.regForm.email.value;
-	open(url, "post",
-	"toolbar=no, location=no, menubar=no, scrollbars=no, resizable=no, width=300, height=200")
-}
-// const 상수,선언 후 변하지 않을 값의 자료형에 사용
-//emailValCheck()가 정규식으로 입력된 값이 유효한지 검사
-const form = document.regForm; //email을 포함하는 form의 위치
-function emailValCheck(){
-	var emailPattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-z](-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,4}$/i; //이메일 정규식 패턴
-	var email = form.email.value; 
-	// (매개변수 pattern, taget  message)를 호출해 결과에 따라 새창을 띄움
-	if(!check(emailPattern, email, "유효하지 않은 이메일 주소입니다.")) {
-		return false;
-	}
-	return true;
-}
-
-/*정규식 검증이 필요한 다른 항목에서도 사용가능하도록 만들어 코드 재사용성을 높임
-taget을 pattern으로 검사해 유효하면 ture 반환
-taget이 pattern에 맞지 않는다면?
-alert로 message를 띄워 사용자에게 알림
-유요하지 않은 입력에 포커스를 줌
-false 반환*/
-
-function check(pattern, taget, message) {
-	if(pattern.test(taget)) {
-		return true;
-	}
-	alert(message);
-	taget.focus();
-	return false;
-}
-
-
-function authCodeCheck() {
-	var url = "authCodeCheck.jsp?inputedCode=" + document.regForm.authCode.value;
-	open(url, "post",
-	"toolbar=no, location=no, menubar=no, scrollbars=no, resizable=no, width=300, height=200");
-}
-
-
 //뒤로가기
 function backbutton() {
 	history.back();
 }
 
 //구글 로그인 api
-function init() {
-	gapi.load('auth2', function() {
-		gapi.auth2.init();
-		options = new gapi.auth2.SigninOptionsBuilder();
-		options.setPrompt('select_account');
-        // 추가는 Oauth 승인 권한 추가 후 띄어쓰기 기준으로 추가
-		options.setScope('email profile openid https://www.googleapis.com/auth/user.birthday.read');
-        // 인스턴스의 함수 호출 - element에 로그인 기능 추가
-        // GgCustomLogin은 li태그안에 있는 ID, 위에 설정한 options와 아래 성공,실패시 실행하는 함수들
-		gapi.auth2.getAuthInstance().attachClickHandler('GgCustomLogin', options, onSignIn, onSignInFailure);
-	})
-}
-
-function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-
-    /*    // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);*/
-      }
-
-//구글 로그아웃 
-function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
 
 
-/*
-//비밀번호 찾기 
-"use strict";var re=/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;//뒤로가기 버튼
-$("#sendNewPwdBtn").click(function(){// console.log(111111);
-return re.test($("#findUserPwdEmail").val())?void $.ajax({type:"POST",url:"/sendNewPwd",data:{findUserPwdEmail:$("#findUserPwdEmail").val()},success:function success(res){alert(res.msg)}}):void alert("\uC798\uBABB\uB41C \uC774\uBA54\uC77C\uC785\uB2C8\uB2E4.")}),$("#backPage").click(function(){history.back()})*/
+
+

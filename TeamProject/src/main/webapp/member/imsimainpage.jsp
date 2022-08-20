@@ -8,9 +8,9 @@
 <title>메인페이지 임시</title>
 </head>
 <body>
-   
- <nav id= "navcc">
- <div class ="nav-wrapper navWidth">
+ <div class = "header">  
+ 	<nav id= "navcc">
+ 		<div class ="nav-wrapper navWidth">
  	<ul>
  	 <li id="loginlogoutNav">
 		<div class ="nav-profile-btn-container">
@@ -23,10 +23,10 @@
 		<li>
 			<a onclick = "logout()">로그아웃</a>
 		</li>
-		</li>
 	</ul>
-</div>
+	</div>
 </nav>
+</div>
 
 </body>
 </html>

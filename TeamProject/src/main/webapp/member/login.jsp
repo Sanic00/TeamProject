@@ -11,8 +11,8 @@
 <meta charset="UTF-8">
 <title>여행 스케쥴링 플래너 - 도죠</title>
 <link rel="stylesheet" type="text/css" href="style.css">
-<meta name="google-signin-client_id" content="885450494757-uu2rp6dqr2jjtqjabhtkrfh2pd8g4hjf.apps.googleusercontent.com">
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<meta name="google-signin-client_id" content="885450494757-atkb1esfoe2br3d5sf2h6j58kku2jfvk.apps.googleusercontent.com">
 <script type="text/javascript" src = "script.js"></script>
 </head>
 <body>
@@ -83,9 +83,8 @@
 	   	</div>
 	  </div>
 	</div>
-	<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-    <button type ="button" onclick="signOut();">Sign Out</button>
 </form>
 <% } %> 
+
 </body>
 </html>
