@@ -87,6 +87,31 @@ function backbutton() {
 
 //구글 로그인 api
 
+//회원 정보 수정 유효성 검사
+function updateCheck(){
+	
+	if(document.regForm.pass.value==""){
+		alert("비밀번호를 입력해주세요.");
+		document.regForm.pass.focus();
+		/*중지*/
+		return;
+	}
+	if(document.regForm.repass.value==""){
+		alert("비밀번호를 똑같이 입력해주세요.");
+		document.regForm.repass.focus();
+		/*중지*/
+		return;
+	}
+	if(document.regForm.pass.value !=document.regForm.repass.value){
+		alert("비밀번호가 일치 하지 않습니다.");
+		document.regForm.repass.focus(); /*비밀번호를 repass에 focus로 맞춘다.*/
+		/*중지*/
+		return;
+	}
+	document.regForm.submit();
+}
 
-
-
+// 프로필 수정 페이지로 이동
+function replaceLink() {
+	location.replace('modifyForm.jsp');
+}

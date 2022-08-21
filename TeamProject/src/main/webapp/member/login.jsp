@@ -11,8 +11,6 @@
 <meta charset="UTF-8">
 <title>여행 스케쥴링 플래너 - 도죠</title>
 <link rel="stylesheet" type="text/css" href="style.css">
-<script src="https://accounts.google.com/gsi/client" async defer></script>
-<meta name="google-signin-client_id" content="885450494757-atkb1esfoe2br3d5sf2h6j58kku2jfvk.apps.googleusercontent.com">
 <script type="text/javascript" src = "script.js"></script>
 </head>
 <body>

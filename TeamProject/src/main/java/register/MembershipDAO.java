@@ -160,9 +160,86 @@ public boolean idCheck(String id) {
 		return check;
 	} // end of loginCheck
 	
+	//정보수정 
+	public MembershipVO getMember(String id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;  
+		ResultSet rs = null;
+		
+		
+		MembershipVO vo = null;
+		
+		try {
+			conn = getConnection();
+			String strQuery = "select * from member where id=?";
+			pstmt = conn.prepareStatement(strQuery);
+			
+			pstmt.setString(1, id);
+			
+			rs=pstmt.executeQuery();
+		
+		if(rs.next()) {
+			vo = new MembershipVO();
+			
+			vo.setId(rs.getString("id"));
+			vo.setPass(rs.getString("pass"));
+			vo.setNick(rs.getString("nick"));
+			vo.setEmail(rs.getString("email"));
+		
+		}
+	
+		}catch(SQLException s1) {	
+			s1.printStackTrace();
+		}catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) try{rs.close();}catch(SQLException s1){}
+			if(pstmt != null) try{pstmt.close();}catch(SQLException s2){}
+			if(conn != null) try{conn.close();}catch(SQLException s3){}		
+		}
+		
+		return vo;
+		
+	}//end of getMember
+	
+	//회원정보수정 완료
+	public void updateMember(MembershipVO vo) {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try { 
+			conn = getConnection();
+			
+		String strQuery = "update member set pass =? where = id";
+		pstmt = conn.prepareStatement(strQuery);
+			//비밀번호만 바꿀꺼임
+		pstmt.setString(1, vo.getPass());
+		
+		pstmt.executeUpdate();
+			
+			
+			
+		}  catch(SQLException s1) {	
+			s1.printStackTrace();
+		}catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(pstmt != null) try{pstmt.close();}catch(SQLException s2){}
+			if(conn != null) try{conn.close();}catch(SQLException s3){}		
+		}
+		
+		
+	}//end of updateMember
 	
 	
-	
-	
+	//회원탈퇴
+	/*
+	 * public int deleteMember(String id, String pass) { Connection conn = null;
+	 * PreparedStatement pstmt = null; ResultSet rs = null;
+	 * 
+	 * 
+	 * return result; }
+	 */
 	
 }

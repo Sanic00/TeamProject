@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>여행 스케쥴링 플래너 - 도죠</title>
 </head>
 <body>
 <!--header  -->
@@ -32,9 +32,9 @@
 		<div class = "container">
 			<div class="top-container">
 				<div class="profile-container">
-					<div class =profile-text id = "profilePhoto">(imsi)</div>
-					<div class = "text">Imsi</div>
-					<button class ="btn-normal" onclick = "#">프로필 수정</button>
+					<div class =profile-text id = "profilePhoto">(김)</div>
+					<div class = "text">김!!</div>
+					<button class ="btn-normal" onclick="location.href='modifyForm.jsp'">프로필 수정</button>
 				</div>
 				<!-- 나의 일정 나의 리뷰 묶음 -->
 				<div></div>
