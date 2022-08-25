@@ -17,7 +17,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>여행 스케쥴링 플래너 - 도죠</title>
 </head>
 <body>
 	<div align = "center">

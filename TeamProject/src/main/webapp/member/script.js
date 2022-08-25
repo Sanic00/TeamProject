@@ -115,3 +115,17 @@ function updateCheck(){
 function replaceLink() {
 	location.replace('modifyForm.jsp');
 }
+
+//로그아웃
+function logout() {
+	if(confirm("정말 로그아웃 하시겠습니까?")) {
+		location.href = "<c:url value ='/member/logout'/>";
+
+	}
+function refocus() {
+	document.deleteForm.pass.focus();
+}
+
+
+}
+

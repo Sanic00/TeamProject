@@ -211,10 +211,11 @@ public boolean idCheck(String id) {
 		try { 
 			conn = getConnection();
 			
-		String strQuery = "update member set pass =? where = id";
+		String strQuery = "update member set pass =? where id=?";
 		pstmt = conn.prepareStatement(strQuery);
 			//비밀번호만 바꿀꺼임
 		pstmt.setString(1, vo.getPass());
+		pstmt.setString(2, vo.getId());
 		
 		pstmt.executeUpdate();
 			
@@ -234,12 +235,58 @@ public boolean idCheck(String id) {
 	
 	
 	//회원탈퇴
-	/*
-	 * public int deleteMember(String id, String pass) { Connection conn = null;
-	 * PreparedStatement pstmt = null; ResultSet rs = null;
-	 * 
-	 * 
-	 * return result; }
-	 */
 	
-}
+	  public int deleteMember(String id, String pass) { 
+	  
+      Connection conn = null;
+	  PreparedStatement pstmt = null; 
+	  ResultSet rs = null;
+	  
+	  String dbPass="";
+	  
+	  int result = -1; 
+	  
+	  try {
+		  conn = getConnection();
+		  
+		  String strQuery = "select pass from member where id=?";
+		  
+		  pstmt = conn.prepareStatement(strQuery);
+		  pstmt.setString(1, id);
+		  rs = pstmt.executeQuery();
+		  //아이디를 조회해서 비밀번호가 맞으면 탈퇴시킬수있게
+		  
+		  if(rs.next()) {
+			 
+			  dbPass = rs.getString("pass");
+			  
+			 if(dbPass.equals(pass)) {
+				 
+			  pstmt = conn.prepareStatement("delete from member where id =?");
+			  pstmt.setString(1, id);
+			  pstmt.executeUpdate();
+			  
+			  result = 1; //회원탈퇴 OK
+		  } else { //비밀번호가 오류일때 조건
+			  result = 0;
+		  }
+		 }
+		  
+	  	}catch(SQLException s1) {	
+			s1.printStackTrace();
+		}catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+		  if(rs != null) try{rs.close();}catch(SQLException s1){}
+		  if(pstmt != null) try{pstmt.close();}catch(SQLException s2){}
+		  if(conn != null) try{conn.close();}catch(SQLException s3){}		
+		}
+	  
+	  
+	  return result; 
+	  }//end of deleteMember
+
+
+} //end of DAO
+	
+

@@ -21,7 +21,7 @@
 			<a href = "mypage.jsp">마이페이지</a>
 		</li>
 		<li>
-			<a onclick = "logout()">로그아웃</a>
+			<a href = "logout.jsp">로그아웃</a>
 		</li>
 	</ul>
 	</div>
