@@ -225,9 +225,10 @@ color:#999;
 }
 
 .input-button {
-	width: 50px !important;
-    border : none;
-    border-radius: 50%;
+   width: 50px !important;
+   padding: 0 !important;
+   border : none;
+   border-radius: 50%; 
 }
 
 .membergaip {
