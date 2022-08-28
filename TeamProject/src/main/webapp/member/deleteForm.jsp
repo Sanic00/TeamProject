@@ -22,24 +22,24 @@
 	<div class = "container">
 	<div><!--버튼을 눌러서 중복확인 중복화인은 자바스크립트로 함수로 구현  -->
 	 	<label class = "label-text">아이디</label>
-	 	<input class = "imsi" type = "text" name ="id" value = "<%=vo.getId()%>" disabled>
+	 	<input class = "input" type = "text" name ="id" value = "<%=vo.getId()%>" disabled>
 	</div>
 	
 	<div>
 	 	 <label class = "label-text">PASSWORD</label>
-	 	 <input class = "#" type = "password" name ="pass" onclick="refocus()">
+	 	 <input class = "input" type = "password" name ="pass" onclick="refocus()">
 	</div>
 	
 	<div>
-		<input type ="submit" class = "#"  value = "회원탈퇴">
+		<input type ="submit" class = "memberdelete"  value = "회원탈퇴">
 	</div>
 	
 	<div>
-		<input type ="button" class = "#" value = "뒤로가기" onclick="backbutton()"> 
+		<input type ="button" class = "back-button" value = "뒤로가기" onclick="backbutton()"> 
 	</div>
 					<!--그냥 한거임  -->
-		<div>
-			<ul>도죠를 탈퇴하시는 사유를 체크해주세요.
+		<div class = "reason-contanier">
+			<ul class="reason"><h2>탈퇴 사유를 체크해주세요.</h2>
 		 		<li><input type="checkbox" >재가입을 위해서</li>
 		 		<li><input type="checkbox" >불편해서</li>
 		 		<li><input type="checkbox" >팀명이 마음에 안들어서</li>

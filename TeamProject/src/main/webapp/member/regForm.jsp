@@ -17,7 +17,7 @@
 	<form action="regProc.jsp" method = "post" name = "regForm"><!--회원가입 폼 안에 있는 정보들을 DB로 넣어줘야 된다. -->
 	 <div class = "regdiv">  
 	 	  <label class = "label-text">아이디</label>
-	 	<div  class = "form-container"><!--버튼을 눌러서 중복확인 중복화인은 자바스크립트로 함수로 구현  -->
+	 	<div class = "form-container"><!--버튼을 눌러서 중복확인 중복화인은 자바스크립트로 함수로 구현  -->
 	 	  <input class = "input" type = "text" name ="id" >
 	 	  <input class = "input-button" type = "button" value = "확인" onclick="idCheck(this.form.id.value)"> <!--아이디 확인 버튼-->
 	 	</div>

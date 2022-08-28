@@ -202,7 +202,7 @@ input[type = 'password'] {
     max-height: 48px !important;
 }
 
-/* 회원가입 폼 */
+/* 회원가입 and 회원수정 and 회원삭제폼 */
 /*회원가입폼 글씨 색  */
 .regdiv {
 display : block;	
@@ -226,8 +226,8 @@ color:#999;
 
 .input-button {
 	width: 50px !important;
-    padding: 0 !important;
-   
+    border : none;
+    border-radius: 50%;
 }
 
 .membergaip {
@@ -272,8 +272,52 @@ color:#999;
     }
 }
 
+/* 회원수정안에 있는 회원탈퇴 */
+.membership-withdrawal {
+	text-align: center;
+    font-size: 14px;	
+}
+
+.membership-withdrawal a {
+	text-decoration: none;
+    color: #3498db;
+}
 
 
+.membership-withdrawal a:hover {
+	text-decoration: underline;
+}
+
+/* 회원탈퇴  */
+.memberdelete {
+	margin-top: 24px;
+    height: 45px;
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #98dde3;
+}
+
+.reason-container {
+	vertical-align: middle;
+}
+
+
+.reason-container .reason {
+	text-align : "center";
+	margin-top: 24px;
+}
+
+.reason li {
+	margin-top: 20px;
+	font-size:18px;
+	list-style: none;
+}
 
 
 
