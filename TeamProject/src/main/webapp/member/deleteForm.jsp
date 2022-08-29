@@ -20,6 +20,8 @@
 <body>
 <form action="deleteProc.jsp" method="post" name="deleteForm">
 	<div class = "container">
+  <div class = "text"><h2>회원 탈퇴</h2></div>
+	   <div class = "small-text">여행 스케쥴링 플래너 - 도죠</div>
 	<div><!--버튼을 눌러서 중복확인 중복화인은 자바스크립트로 함수로 구현  -->
 	 	<label class = "label-text">아이디</label>
 	 	<input class = "input" type = "text" name ="id" value = "<%=vo.getId()%>" disabled>
