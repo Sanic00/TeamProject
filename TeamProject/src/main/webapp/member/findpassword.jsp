@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>여행 스케쥴링 플래너 - 도죠</title>
-<link rel="stylesheet" type="text/css" href="style.css">
-<script type="text/javascript" src = "script.js"></script>
+<link rel="stylesheet" type="text/css" href="memberstyle.css">
+<script type="text/javascript" src = "memberscript.js"></script>
 </head>
 <body>
  	<div class ="center">

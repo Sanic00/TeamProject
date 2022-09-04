@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    <%@page import = "register.*" %>
-    <jsp:useBean id="dao" class = "register.MembershipDAO" />
+    <%@page import = "com.member.model.*" %>
+    <jsp:useBean id="dao" class = "com.member.model.MembershipDAO" />
     
     <%
     	String loginID = (String)session.getAttribute("loginID");
@@ -14,8 +14,8 @@
 <head>
 <meta charset="UTF-8">
 <title>여행 스케쥴링 플래너 - 도죠</title>
-<link rel="stylesheet" type="text/css" href="style.css">
-<script type="text/javascript" src = "script.js"></script>
+<link rel="stylesheet" type="text/css" href="memberstyle.css">
+<script type="text/javascript" src = "memberscript.js"></script>
 </head>
 <body>
 <form action="deleteProc.jsp" method="post" name="deleteForm">
@@ -24,12 +24,12 @@
 	   <div class = "small-text">여행 스케쥴링 플래너 - 도죠</div>
 	<div><!--버튼을 눌러서 중복확인 중복화인은 자바스크립트로 함수로 구현  -->
 	 	<label class = "label-text">아이디</label>
-	 	<input class = "input" type = "text" name ="id" value = "<%=vo.getId()%>" disabled>
+	 	<input class = "input-css" type = "text" name ="id" value = "<%=vo.getId()%>" disabled>
 	</div>
 	
 	<div>
 	 	 <label class = "label-text">PASSWORD</label>
-	 	 <input class = "input" type = "password" name ="pass" onclick="refocus()">
+	 	 <input class = "input-css" type = "password" name ="pass" onclick="refocus()">
 	</div>
 	
 	<div>

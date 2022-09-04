@@ -3,8 +3,8 @@
     <%
     request.setCharacterEncoding("UTF-8");
     %>
-    <jsp:useBean id = "dao" class = "register.MembershipDAO" />
-    <jsp:useBean id = "vo" class = "register.MembershipVO" />
+    <jsp:useBean id = "dao" class = "com.member.model.MembershipDAO" />
+    <jsp:useBean id = "vo" class = "com.member.model.MembershipVO" />
     
     <jsp:setProperty property = "*" name ="vo"/>
     

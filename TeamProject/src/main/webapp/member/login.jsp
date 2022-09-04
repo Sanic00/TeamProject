@@ -10,10 +10,10 @@
 <head>
 <meta charset="UTF-8">
 <title>여행 스케쥴링 플래너 - 도죠</title>
-<link rel="stylesheet" type="text/css" href="style.css">
-<script type="text/javascript" src = "script.js"></script>
+<link rel="stylesheet" type="text/css" href="memberstyle.css">
+<script type="text/javascript" src = "memberscript.js"></script>
 </head>
-<body>
+<body class ="login-body">
 	 <%
 
  	if(loginID != null) { //login 되었을때 화면 출력
@@ -30,17 +30,17 @@
 	<div class = "form-container">
 	   		<div class = "data">
 	   	 		<label>ID</label>
-	   	 		<input type = "text" name = "id">
+	   	 		<input class="data-input" type = "text" name = "id">
 	   	 	</div>
 	   	 	
 	   	 	<div class = "data">
 	   	 		<label>PASSWORD</label>
-	   	 		<input type = "password" name = "pass">
+	   	 		<input class="data-input" type = "password" name = "pass">
 	   	 	</div>
 	   	 	
 	   	 	<!--비밀번호 찾기  -->
 	   	 	<div class = "forget-pass">
-	   	 	<a href ="findpassword.jsp">비밀번호를 잊으셨나요?</a>
+	   	 	<a class="fg-pass" href ="findpassword.jsp">비밀번호를 잊으셨나요?</a>
 	   	 	</div>
 	   	 	
 	   	 	<!--로그인 버튼  -->
@@ -51,13 +51,13 @@
 	   	 	
 	   	 	<!--회원가입 링크  -->
 	   	 	<div class = "signup-link">회원이 아니신가요?
-	   	 	 <a href = "regForm.jsp">회원가입하기</a>
+	   	 	 <a class= "link" href = "regForm.jsp">회원가입하기</a>
 	   	 	</div>
 	   	 	
 	   	 	<!-- -->
 	   	 	<div class = "divider-container">
 	   	 	<div class = "divider"></div>
-	   	 		<span>or</span>
+	   	 		<span class ="or">or</span>
 	   	 	</div>
 	   	 	
 	   		 <!--소셜 로그인 연동 (수정해야됨)-->

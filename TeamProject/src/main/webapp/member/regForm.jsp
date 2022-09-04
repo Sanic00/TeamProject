@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>여행 스케쥴링 플래너 - 도죠</title>
-<link rel="stylesheet" type="text/css" href="style.css">
-<script type="text/javascript" src = "script.js"></script>
+<link rel="stylesheet" type="text/css" href="memberstyle.css">
+<script type="text/javascript" src = "memberscript.js"></script>
 </head>
 <body>
 <div class="center">
@@ -18,7 +18,7 @@
 	 <div class = "regdiv">  
 	 	  <label class = "label-text">아이디</label>
 	 	<div  class = "form-container"><!--버튼을 눌러서 중복확인 중복화인은 자바스크립트로 함수로 구현  -->
-	 	  <input class = "input" type = "text" name ="id" >
+	 	  <input class = "input-css" type = "text" name ="id" >
 	 	  <input class = "input-button" type = "button" value = "확인" onclick="idCheck(this.form.id.value)"> <!--아이디 확인 버튼-->
 	 	</div>
 	 </div>
@@ -26,21 +26,21 @@
 	 <div class = "regdiv">
 	 	  <label class = "label-text">PASSWORD</label>
 		<div>
-	 	  <input class = "input" type = "password" name ="pass">
+	 	  <input class = "input-css" type = "password" name ="pass">
 	 	</div>
 	</div>
 	
 	 <div class = "regdiv">
 	 	  <label class = "label-text">PASSWORD확인</label>
 	 	<div>
-	 	  <input class = "input" type = "password" name ="repass">
+	 	  <input class = "input-css" type = "password" name ="repass">
 	 	</div>
 	 </div>	
 	 
 	  <div class = "regdiv">
 	 	  <label class = "label-text">NickName</label>
 	 	<div>
-	 	  <input class = "input" type = "text" name ="nick">
+	 	  <input class = "input-css" type = "text" name ="nick">
 	 	  <input class = "input-button" type = "button" value = "확인" onclick="nickCheck(this.form.nick.value)">
 	 	</div>
 	 </div>
@@ -48,7 +48,7 @@
 	 <div class = "regdiv">	
 	 	  <label class = "label-text">E-Mail</label>
 	 	<div>
-	 	  <input class = "input" type = "text" name ="email">
+	 	  <input class = "input-css" type = "text" name ="email">
 	 	</div>
 	</div>
 	 

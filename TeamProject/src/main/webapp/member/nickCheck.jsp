@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     <jsp:useBean id= "dao" class="register.MembershipDAO" />
+     <jsp:useBean id= "dao" class="com.member.model.MembershipDAO" />
      
      <%
      String nick = request.getParameter("nick");
@@ -13,8 +13,8 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<link rel="stylesheet" type="text/css" href="style.css">
-<script type="text/javascript" src = "script.js"></script>
+<link rel="stylesheet" type="text/css" href="memberstyle.css">
+<script type="text/javascript" src = "memberscript.js"></script>
 </head>
 <body>
 <div align = "center">

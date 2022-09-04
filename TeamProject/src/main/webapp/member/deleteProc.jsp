@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
     
     
-   <%@page import = "register.*" %>
-    <jsp:useBean id="dao" class = "register.MembershipDAO" />
+   <%@page import = "com.member.model.*" %>
+    <jsp:useBean id="dao" class = "com.member.model.MembershipDAO" />
     
     
     <%

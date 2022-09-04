@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import = "register.*" %>
-    <% request.setCharacterEncoding("utf-8");%>
+    <%@ page import = "com.member.model.*" %>
+    <%
+    request.setCharacterEncoding("utf-8");
+    %>
     
-    <jsp:useBean id ="dao" class="register.MembershipDAO"/>
-    <jsp:useBean id ="vo" class ="register.MembershipVO" >
+    <jsp:useBean id ="dao" class="com.member.model.MembershipDAO"/>
+    <jsp:useBean id ="vo" class ="com.member.model.MembershipVO" >
     <jsp:setProperty property ="*" name="vo"/>
     </jsp:useBean>
     
