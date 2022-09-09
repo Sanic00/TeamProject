@@ -1,41 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%
-    request.setCharacterEncoding("UTF-8");
-    %>
-    <jsp:useBean id = "dao" class = "register.MembershipDAO" />
-    <jsp:useBean id = "vo" class = "register.MembershipVO" />
-    
-    <jsp:setProperty property = "*" name ="vo"/>
-    
-    <%
-     //DAO에 있는 회원데이터 저장 메소드 
-      boolean flag = dao.memberInsert(vo);
-    %> 
-    
+   
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+   
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>여행 스케쥴링 플래너 - 도죠</title>
 </head>
+<c:set var="flag" value="${flag}"/> 
 <body>
-	<div align = "center">
-	<%
-	if(flag) {
-		out.println("<b>회원가입을 진심으로 축하드립니다<b><br>");
-		out.println("<a href=login.jsp>로그인</a>");
-	}else {
-		out.println("<b>다시 입력 해 주세요.<b><br>");
-		out.println("<a href=regForm.jsp>로그인</a>");
-	}
-	
-	
-	%>
-	</div>
-	
-	
-	
-	
+	<c:choose>
+		<c:when test="${flag}">
+			<script type="text/javascript">
+			alert("회원 가입을 축하드립니다.");
+			location.href="cityPlan.mb?cmd=login";
+			</script>
+		</c:when>
+		
+		<c:otherwise>
+			<script type="text/javascript">
+			alert("다시 입력해주세요.");
+			location.href="cityPlan.mb?cmd=regForm";
+			</script>
+		</c:otherwise>
+	</c:choose>
+
 </body>
 </html>

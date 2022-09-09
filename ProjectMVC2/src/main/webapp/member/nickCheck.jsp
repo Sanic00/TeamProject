@@ -1,13 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     <jsp:useBean id= "dao" class="register.MembershipDAO" />
-     
-     <%
-     String nick = request.getParameter("nick");
-     boolean check = dao.nickCheck(nick);
-     %>
-     
-     
+
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,15 +13,15 @@
 </head>
 <body>
 <div align = "center">
-<b> <%= nick %></b>
-	<%
-	if(check){
-		out.println("는 사용중인 닉네임입니다.<br><br>");
-	}else {
-		out.println("사용 가능한 닉네임입니다.<br><br>");
-	}
-	%>
+<b> ${nick }</b>
 
+<c:if test="${check eq true }">
+는 이미 존재하는 닉네임입니다.<br>
+</c:if>
+
+<c:if test="${check ne true }">
+는 사용가능한 닉네임입니다.<br>
+</c:if>
 	<a href ="#" onclick = "javascript:self.close()">닫기</a>
 
 </div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
   			<div class ="small-text">여행 스케쥴링 플래너 - 도죠</div>
   			
   			<div>
-  			<label class="label-text" for"findUserPwdEmail">이메일</label>
+  			<label class="label-text">이메일</label>
   				<input class ="input" type ="email" id="findUserPwdEmail">
   			</div>
  		</div>

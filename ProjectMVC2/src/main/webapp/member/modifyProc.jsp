@@ -1,27 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import = "com.member.model.*" %>
-    <%
-    request.setCharacterEncoding("utf-8");
-    %>
-    
-    <jsp:useBean id ="dao" class="com.member.model.MembershipDAO"/>
-    <jsp:useBean id ="vo" class ="com.member.model.MembershipVO" >
-    <jsp:setProperty property ="*" name="vo"/>
-    </jsp:useBean>
-    
-     <%									
-     String loginID = (String)session.getAttribute("loginID");
-     vo.setId(loginID);
-     dao.updateMember(vo);
-     %>
-    
+ 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>여행 스케쥴링 플래너 - 도죠</title>
-<meta http-equiv ="Refresh" content = "1; url=mypage.jsp">
+<meta http-equiv ="Refresh" content = "1; url=cityPlan.mb?cmd=mypage.jsp">
 </head>
 <body>
 

@@ -18,10 +18,10 @@
 		<button class =  "nav-profile-btn"  aria-expanded ="true"></button>
 		</div>	
 		<li>
-			<a href = "mypage.jsp">마이페이지</a>
+			<a href ="cityPlan.mb?cmd=mypage">마이페이지</a>
 		</li>
 		<li>
-			<a onclick = "logout()">로그아웃</a>
+			<a onclick ="logout()">로그아웃</a>
 		</li>
 	</ul>
 	</div>

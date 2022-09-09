@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <jsp:useBean id = "dao" class = "register.MembershipDAO"/>
-    <%
-    String id = request.getParameter("id");
-    boolean check = dao.idCheck(id);
-    %>
-    
+ 
+ 	 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +11,19 @@
 <script type="text/javascript" src = "memberscript.js"></script>
 <title></title>
 </head>
-<body bgcolor = "#18ffff">
+<body>
 
 <div align = "center">
-<b><%= id %></b>
- <% 
-	if(check) {
-		out.println("는 이미 존재하는 아이디입니다.<br><br>");
-	}else {
-		out.println("사용 가능한 ID입니다.<br><br>");
-	}
- %>
- 
- <a href = "#" onclick="javascript:self.close()">닫기</a>
+	<b>${id}</b>
+
+<c:if test="${check eq true }">
+는 이미 존재하는 ID입니다.<br>
+</c:if>
+
+<c:if test="${check ne true }">
+는 사용가능한 ID입니다.<br>
+</c:if>
+	<a href = "#" onclick="javascript:self.close()">닫기</a>
 </div>
 
 

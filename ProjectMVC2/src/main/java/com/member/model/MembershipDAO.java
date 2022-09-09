@@ -135,7 +135,7 @@ public class MembershipDAO {
 		
 		}catch(SQLException s1) {	
 			s1.printStackTrace();
-			System.out.println("????");
+		
 		}catch(Exception e) {
 			e.printStackTrace();
 		} finally {

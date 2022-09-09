@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-    <%@page import = "com.member.model.*" %>
-    <jsp:useBean id="dao" class = "com.member.model.MembershipDAO" />
-    
- 
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,46 +10,42 @@
 <script type="text/javascript" src = "memberscript.js"></script>
 </head>
 
-	<%
-    	String loginID = (String)session.getAttribute("loginID");
-    	MembershipVO vo = dao.getMember(loginID);
-    %>
 <body>
 <div class="center">
   <div class ="container">
 	<div class ="text">회원 수정</div>
 	<div class ="small-text">여행 스케쥴링 플래너 - 도죠</div>
 	
-	<form action="modifyProc.jsp" method = "post" name = "regForm"><!--회원가입 폼 안에 있는 정보들을 DB로 넣어줘야 된다. -->
+	<form action="cityPlan.mb?cmd=modifyProc" method = "post" name = "regForm"><!--회원가입 폼 안에 있는 정보들을 DB로 넣어줘야 된다. -->
 	 	<div><!--버튼을 눌러서 중복확인 중복화인은 자바스크립트로 함수로 구현  -->
 	 	  <label class = "label-text">아이디</label>
-	 	  <input class = "input-css" type = "text" name ="id" value = "<%=vo.getId() %>" disabled>
-	 	 
+	 	  <input class = "input-css" type = "text" name ="id" value = "${id}" disabled>
+		
 	 	</div>
 	 	
 		<div>
 	 	  <label class = "label-text">PASSWORD</label>
-	 	  <input class = "input-css" type = "password" name ="pass" value="<%=vo.getPass()%>">
+	 	  <input class = "input-css" type = "password" name ="pass" value="${pass }">
 	 	</div>
 	 	
 	 	<div>
 	 	  <label class = "label-text">PASSWORD확인</label>
-	 	  <input class = "input-css" type = "password" name ="repass" value="<%=vo.getPass()%>">
+	 	  <input class = "input-css" type = "password" name ="repass" value="${pass }">
 	 	</div>
 	 	
 	 	<div>
 	 	  <label class = "label-text">NickName</label>
-	 	  <input class = "input-css" type = "text" name ="nick" value = "<%=vo.getNick()%>" disabled>
+	 	  <input class = "input-css" type = "text" name ="nick" value = "${nick }" disabled>
 	 	  <!-- <input class = "#" type = "button">  닉네임을 다시 바꿀수 있게할지 고민중-->
 	 	</div>
 	 	
 	 	<div>
 	 	  <label class = "label-text">E-Mail</label>
-	 	  <input class = "input-css" type = "text" name ="email" value = "<%=vo.getEmail()%>">
+	 	  <input class = "input-css" type = "text" name ="email" value = "${email }">
 	 	</div>
 	 
 		<div class = "membership-withdrawal">
-		 	<a class ="delete-link"href ="deleteForm.jsp">회원탈퇴</a>
+		 	<a class ="delete-link"href ="cityPlan.mb?cmd=deleteForm">회원탈퇴</a>
 		</div>
 		
 		<div>

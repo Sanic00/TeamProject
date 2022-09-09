@@ -36,7 +36,7 @@ public class ControlServlet extends HttpServlet {
 			out.println("<body>");
 			
 			out.println("<h4>올바른 요청이 아닙니다!!!!</h4>");              
-			out.println("<h4>http://localhost:9090/ProjectMVC2/member/member.mdo?cmd=요청키워드</h4>"); //형식을 잡아줌
+			out.println("<h4>http://localhost:9090/ProjectMVC2/member/cityPlan.mb?cmd=요청키워드</h4>"); //형식을 잡아줌
 			
 			
 			out.println("</body>");

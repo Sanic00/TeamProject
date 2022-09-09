@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    <%
-    String loginID = (String)session.getAttribute("loginID");
-    %>
-    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+	
+ 	<c:set var="loginID" value="${sessionScope.loginID}"/>
+ 	
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,15 +14,23 @@
 <script type="text/javascript" src = "memberscript.js"></script>
 </head>
 <body class ="login-body">
-	 <%
+<c:choose>	
+	<c:when test="${loginID ne null}"/>
 
- 	if(loginID != null) { //login 되었을때 화면 출력
- 
-	%>
+
+<c:otherwise>
+	<c:if test="${requestScope.check eq 0 }">
+		<script type="text/javascript">
+		alert('비밀번호가 틀렸습니다.')</script>
+	</c:if>
 	
-<% } else { %>
+	<c:if test="${requestScope.check eq -1 }">
+		<script type="text/javascript">
+		alert('ID가 존재하지않습니다.')</script>
+	</c:if>
 
-<form action="loginProc.jsp" method = "post">
+
+<form action="cityPlan.mb?cmd=loginProc" method = "post">
 <div class = "center">
 	<div class ="container">
 	   <div class = "text"><h2>LOG IN</h2></div>
@@ -40,7 +48,7 @@
 	   	 	
 	   	 	<!--비밀번호 찾기  -->
 	   	 	<div class = "forget-pass">
-	   	 	<a class="fg-pass" href ="findpassword.jsp">비밀번호를 잊으셨나요?</a>
+	   	 	<a class="fg-pass" href ="cityPlan.mb?cmd=findpassword">비밀번호를 잊으셨나요?</a>
 	   	 	</div>
 	   	 	
 	   	 	<!--로그인 버튼  -->
@@ -51,7 +59,7 @@
 	   	 	
 	   	 	<!--회원가입 링크  -->
 	   	 	<div class = "signup-link">회원이 아니신가요?
-	   	 	 <a class= "link" href = "regForm.jsp">회원가입하기</a>
+	   	 	 <a class= "link" href = "cityPlan.mb?cmd=regForm">회원가입하기</a>
 	   	 	</div>
 	   	 	
 	   	 	<!-- -->
@@ -81,8 +89,8 @@
 	   	</div>
 	  </div>
 	</div>
+	</c:otherwise>
+</c:choose>
 </form>
-<% } %> 
-
 </body>
 </html>

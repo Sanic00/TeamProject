@@ -1,13 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    <%@page import = "com.member.model.*" %>
-    <jsp:useBean id="dao" class = "com.member.model.MembershipDAO" />
-    
-    <%
-    	String loginID = (String)session.getAttribute("loginID");
-    	MembershipVO vo = dao.getMember(loginID);
-    %>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
     
 <!DOCTYPE html>
 <html>
@@ -18,13 +12,13 @@
 <script type="text/javascript" src = "memberscript.js"></script>
 </head>
 <body>
-<form action="deleteProc.jsp" method="post" name="deleteForm">
+<form action="cityPlan.mb?cmd=deleteProc" method="post" name="deleteForm">
 	<div class = "container">
   <div class = "text"><h2>회원 탈퇴</h2></div>
 	   <div class = "small-text">여행 스케쥴링 플래너 - 도죠</div>
 	<div><!--버튼을 눌러서 중복확인 중복화인은 자바스크립트로 함수로 구현  -->
 	 	<label class = "label-text">아이디</label>
-	 	<input class = "input-css" type = "text" name ="id" value = "<%=vo.getId()%>" disabled>
+	 	<input class = "input-css" type = "text" name ="id" value = "${id}" disabled>
 	</div>
 	
 	<div>

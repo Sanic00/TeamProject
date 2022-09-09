@@ -18,10 +18,10 @@
 		<button class =  "nav-profile-btn"  aria-expanded ="true"></button>
 		</div>	
 			<li>
-			<a href = "mypage.jsp">마이페이지</a>
+			<a href ="cityPlan.mb?cmd=mypage">마이페이지</a>
 		</li>
 		<li>
-			<a href = "logout.jsp">로그아웃</a>
+			<a href ="cityPlan.mb?cmd=logout">로그아웃</a>
 		</li>
 	</ul>
 	</div>
@@ -34,7 +34,7 @@
 				<div class="profile-container">
 					<div class =profile-text id = "profilePhoto">(김)</div>
 					<div class = "text">김!!</div>
-					<button class ="btn-normal" onclick="location.href='modifyForm.jsp'">프로필 수정</button>
+					<button class ="btn-normal" onclick="location.href='cityPlan.mb?cmd=modifyForm'">프로필 수정</button>
 				</div>
 				<!-- 나의 일정 나의 리뷰 묶음 -->
 				<div></div>
